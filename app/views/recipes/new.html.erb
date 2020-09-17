@@ -1,1 +1,14 @@
-<%= render 'form', recipe: @recipe %>
+<%#  %># # Recipe = {title: "chocolate cake", 0 => {name: 'sugar', quantity: '1 cup', 1 => {
+#    name: 'vanilla', quantity: '1 tablespoon'}}}
+
+<%= form_for @recipe do |f|%>
+<%= f.label :title %>
+<%= f.text_field :title%>
+<%= f.fields_for :ingredients do |i|%>
+<%= i.label :name %>
+<%= i.text_field :name%>
+<%= i.label :quantity %>
+<%= i.text_field :quantity %>
+<% end %>
+<%= f.submit%>
+<% end %>
